@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#b83838</color>
+    <color name="colorPrimaryDark">#b83838</color>
+    <color name="colorAccent">#b83838</color>
+    <color name="register_btn">#b83838</color>
+    <color name="cancel_btn">#b83838</color>
+    <color name="ok_btn">#b83838</color>
+</resources>

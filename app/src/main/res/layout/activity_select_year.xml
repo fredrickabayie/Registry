@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.practicals.fredrickabayie.registry.select_year">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/studentId"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/hint_studentId"
+        android:inputType="number"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/studentGPA"
+        android:layout_alignLeft="@+id/studentGPA"
+        android:layout_alignStart="@+id/studentGPA" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/studentGPA"
+        android:hint="@string/hint_studentGPA"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/lbl_course"
+        android:id="@+id/select_course_lbl"
+        android:textSize="25sp"
+        android:layout_below="@+id/studentId"
+        android:layout_alignLeft="@+id/studentId"
+        android:layout_alignStart="@+id/studentId"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp" />
+
+    <RadioGroup
+        android:id="@+id/select_course"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/select_course_lbl">
+
+    <RadioButton
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/lbl_ce"
+    android:id="@+id/ce_radio"
+    android:textSize="25sp" android:layout_below="@+id/select_course_lbl"/>
+
+    <RadioButton
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_cs"
+        android:id="@+id/cs_radio"
+        android:textSize="25sp"
+        android:layout_below="@+id/ce_radio"/>
+
+    <RadioButton
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/lbl_ee"
+    android:id="@+id/ee_radio"
+    android:textSize="25sp" android:layout_below="@+id/cs_radio"/>
+
+    <RadioButton
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/lbl_mis"
+    android:id="@+id/mis_radio"
+    android:textSize="25sp" android:layout_below="@+id/ee_radio"/>
+</RadioGroup>
+
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:text="@string/cancel_btn"
+        android:id="@+id/cancel_btn"
+        android:layout_alignParentBottom="true"
+        android:textSize="25sp"
+        android:textStyle="normal"
+        android:background="@color/cancel_btn"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:text="@string/ok_btn"
+        android:id="@+id/ok_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textSize="25sp"
+        android:textStyle="normal"
+        android:background="@color/ok_btn"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

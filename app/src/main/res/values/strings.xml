@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Students Registry</string>
+    <string name="registerStudent_btn">REGISTER</string>
+    <string name="details_btn">DETAILS</string>
+    <string name="hint_studentName">Full Name</string>
+    <string name="hint_studentId">Student Id</string>
+    <string name="hint_phoneNumber">Phone Number</string>
+    <string name="hint_studentGPA">GPA</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="ok_btn">Ok</string>
+    <string name="lbl_course">Select your course</string>
+    <string name="lbl_cs">Computer Science</string>
+    <string name="lbl_ce">Computer Engineering</string>
+    <string name="lbl_ee">Electrical Engineering</string>
+    <string name="lbl_mis">Management Information System</string>
+</resources>
