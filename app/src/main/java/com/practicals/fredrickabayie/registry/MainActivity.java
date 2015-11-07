@@ -17,6 +17,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * @author fredrickabayie
+ * @version 1.0.0
+ */
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button registerStudent_btn, details_btn;
@@ -26,6 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String studentId, studentGPA, studentMajor;
 
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +53,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         phoneNumber = (EditText) findViewById(R.id.phoneNumber);
     }
 
+    /**
+     *
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         if (v == details_btn) {
@@ -87,12 +100,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+
+        /**
+         *
+         * @param result
+         */
         @Override
         protected void onPostExecute(String result) {
             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
         }
     }
 
+
+    /**
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
@@ -107,6 +132,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
+    /**
+     * A function to read the web page
+     * @param view
+     */
     public void readWebpage(View view) {
         System.out.println("clicked");
         DownloadWebPageTask task = new DownloadWebPageTask();
