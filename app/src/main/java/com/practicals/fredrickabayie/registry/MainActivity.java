@@ -66,7 +66,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (v == registerStudent_btn) {
-            readWebpage(v);
+            if(studentName.getText().toString().equals("") && phoneNumber.getText().toString().equals("")) {
+                studentName.setError("Please enter your name");
+                phoneNumber.setError("Please enter your phone number");
+            }
+            else if (phoneNumber.getText().toString().length() < 10 || phoneNumber.getText().toString().length() > 10) {
+                phoneNumber.setError("Please enter a valid phone number");
+            }
+            else {
+                readWebpage(v);
+            }
         }
     }
 

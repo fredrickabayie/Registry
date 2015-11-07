@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class select_year extends AppCompatActivity implements View.OnClickListener {
 
@@ -40,14 +41,23 @@ public class select_year extends AppCompatActivity implements View.OnClickListen
         }
 
         if(v == ok_btn) {
-//            int selected_course = select_course.getCheckedRadioButtonId();
-            String course = ((RadioButton) findViewById(select_course.getCheckedRadioButtonId())).getText().toString();
-            Intent data = new Intent();
-            data.putExtra("studentId", studentId.getText().toString());
-            data.putExtra("studentMajor", course);
-            data.putExtra("studentGPA", studentGPA.getText().toString());
-            setResult(RESULT_OK, data);
-            finish();
+            if(studentId.getText().toString().equals("") && studentGPA.getText().toString().equals("")) {
+//                Toast.makeText(getApplicationContext(),"Please fill the form",Toast.LENGTH_LONG).show();
+                studentId.setError("Please enter your ID");
+                studentGPA.setError("Please enter your GPA");
+            }
+            else if (studentId.getText().toString().length() < 8 || studentId.getText().toString().length() > 8 ) {
+                studentId.setError("ID must be = 8 numbers");
+            }
+            else {
+                String course = ((RadioButton) findViewById(select_course.getCheckedRadioButtonId())).getText().toString();
+                Intent data = new Intent();
+                data.putExtra("studentId", studentId.getText().toString());
+                data.putExtra("studentMajor", course);
+                data.putExtra("studentGPA", studentGPA.getText().toString());
+                setResult(RESULT_OK, data);
+                finish();
+            }
 
         }
     }
