@@ -1,5 +1,6 @@
 package com.practicals.fredrickabayie.registry;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -73,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else if (phoneNumber.getText().toString().length() < 10 || phoneNumber.getText().toString().length() > 10) {
                 phoneNumber.setError("Please enter a valid phone number");
             }
+            else if (display_details.getText().toString().equals("")) {
+                details_btn.setError("Please select your course details");
+            }
             else {
                 readWebpage(v);
             }
@@ -118,6 +122,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         protected void onPostExecute(String result) {
             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+            studentName.setText("");
+            phoneNumber.setText("");
+            display_details.setText("");
         }
     }
 
@@ -131,15 +138,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-            if (data.hasExtra("studentId")) {
+            if (data.hasExtra("studentId") && data.hasExtra("studentGPA") && data.hasExtra("studentMajor")) {
                 studentId = data.getExtras().getString("studentId");
                 studentGPA = data.getExtras().getString("studentGPA");
-                studentMajor = data.getExtras().getString("studentMajor");
+                studentMajor = data.getExtras().getString("studentMajor").replace(" ", "%20");
+                details_btn.setError(null);
 
                 display_details.setText("Student ID: "+data.getExtras().getString("studentId")+
                         "\nCourse: "+data.getExtras().getString("studentMajor")+"\nGPA: "+data.getExtras().getString("studentGPA"));
+            } else {
+                display_details.setText("Please select your school details");
             }
         }
+    }
+
+
+    public void showNotification() {
+//        Notification notification = new Notification();
+//        notification.icon = R.drawable.icon;
+//        notification.
     }
 
 
@@ -148,14 +165,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @param view
      */
     public void readWebpage(View view) {
-        System.out.println("clicked");
         DownloadWebPageTask task = new DownloadWebPageTask();
-//        Toast.makeText(getApplicationContext(), studentId+" "+studentGPA+" "+studentMajor, Toast.LENGTH_LONG).show();
         String name = studentName.getText().toString().replaceAll(" ", "%20");
-        String major = studentMajor.replaceAll(" ", "%20");
-        task.execute("http://cs.ashesi.edu.gh/~csashesi/class2016/fredrick-abayie/mobileweb/student_registration_system_sms/php/sms.php?cmd=register&message="
-                +studentId+","+name+","+studentGPA+","+major+","+phoneNumber.getText());
 
+        task.execute("http://cs.ashesi.edu.gh/~csashesi/class2016/fredrick-abayie/mobileweb/student_registration_system_sms/php/sms.php?cmd=register&message="
+                + studentId + "," + name + "," + studentGPA + "," + studentMajor + "," + phoneNumber.getText());
     }
 
 }

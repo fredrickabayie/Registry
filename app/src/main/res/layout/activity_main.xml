@@ -42,7 +42,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/lbl_course"
         android:id="@+id/display_details"
         android:layout_below="@+id/details_btn"
         android:layout_alignParentLeft="true"

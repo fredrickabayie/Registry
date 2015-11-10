@@ -42,7 +42,6 @@ public class select_year extends AppCompatActivity implements View.OnClickListen
 
         if(v == ok_btn) {
             if(studentId.getText().toString().equals("") && studentGPA.getText().toString().equals("")) {
-//                Toast.makeText(getApplicationContext(),"Please fill the form",Toast.LENGTH_LONG).show();
                 studentId.setError("Please enter your ID");
                 studentGPA.setError("Please enter your GPA");
             }
